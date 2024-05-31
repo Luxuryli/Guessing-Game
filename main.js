@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const guessButton = document.getElementById('guessButton');
     const feedback = document.getElementById('feedback');
 
-    guessButton.addEventListener('click', function () {
+    // Function to handle guess
+    function handleGuess() {
         const userGuess = parseInt(guessInput.value);
 
         if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             guessButton.disabled = true;
         } else if (attempts > 0) {
             feedback.textContent = userGuess < randomNumber ? 'Too low!' : 'Too high!';
-            feedback.style.color = 'army';
+            feedback.style.color = 'navy';
             feedback.textContent += ` You have ${attempts} ${attempts === 1 ? 'attempt' : 'attempts'} left.`;
         } else {
             feedback.textContent = `Sorry, you've run out of attempts. The number was ${randomNumber}.`;
@@ -32,5 +33,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         guessInput.value = '';
+    }
+
+
+    guessButton.addEventListener('click', handleGuess);
+
+    guessInput.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            handleGuess();
+        }
+    });
+
+    guessInput.addEventListener('input', function () {
+        guessInput.value = guessInput.value.replace(/[^0-9]/g, '');
     });
 });

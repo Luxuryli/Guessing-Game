@@ -46,6 +46,10 @@ input {
 
 }
 
+input::placeholder {
+    font-size: 12px;
+}
+
 .guess {
     display: flex;
 }
@@ -70,4 +74,7 @@ button:hover {
 p#feedback {
     font-size: 12px;
     color: #333;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
