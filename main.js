@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             guessButton.disabled = true;
         } else if (attempts > 0) {
             feedback.textContent = userGuess < randomNumber ? 'Too low!' : 'Too high!';
-            feedback.style.color = 'orange';
+            feedback.style.color = 'army';
             feedback.textContent += ` You have ${attempts} ${attempts === 1 ? 'attempt' : 'attempts'} left.`;
         } else {
             feedback.textContent = `Sorry, you've run out of attempts. The number was ${randomNumber}.`;
